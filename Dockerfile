@@ -1,5 +1,6 @@
 FROM amazonlinux
 RUN yum install httpd -y
-COPY ~/neogym-html/* /var/www/html/
-CMD /usr/sbin/httpd
+WORKDIR /var/www/html
+COPY neogym-html/* .
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 EXPOSE 80
