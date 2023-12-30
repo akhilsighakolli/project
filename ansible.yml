@@ -1,0 +1,6 @@
+---
+hosts: all
+become: true
+tasks:
+  - name: creating new container
+    shell: docker run -itd --name webappcontainer -p 8900:80 akhilguptha/webserver:latest
